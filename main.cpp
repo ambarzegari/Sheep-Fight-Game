@@ -1,8 +1,9 @@
-#include <iostream>
+#include "SheepFight.hpp"
 
 using namespace std;
 
 int main()
 {
-    cout << "Hello" << endl;
+    SheepFight sheep_fight(WIDTH, HEIGHT);
+    sheep_fight.run();
 }
