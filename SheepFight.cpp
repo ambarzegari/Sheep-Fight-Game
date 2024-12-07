@@ -13,7 +13,20 @@ SheepFight::SheepFight(int width, int height)
     float scaleY = static_cast<float>(windowSize.y) / textureSize.y;
 
     start_sprite.setScale(scaleX, scaleY);
+
+    start_music.openFromFile(MUSICS_FOLDER + "start.ogg");
+    start_music.play();
+    start_music.setLoop(true);
+
+    font.loadFromFile(FONTS_FOLDER + "Cute Dino.ttf");
+    start_text.setFont(font);
+    start_text.setString("Press Enter to start the game.");
+    start_text.setCharacterSize(40);
+    start_text.setFillColor(sf::Color::Black);
+    start_text.setStyle(sf::Text::Bold);
+    start_text.setPosition(240, 600);
 };
+
 void SheepFight::run()
 {
     while (window.isOpen() && state != EXIT)
@@ -24,7 +37,9 @@ void SheepFight::run()
         render();
     }
 }
-void SheepFight::handleEvent(){
+
+void SheepFight::handleEvent()
+{
     Event event;
     switch (state)
     {
@@ -35,10 +50,14 @@ void SheepFight::handleEvent(){
             {
                 window.close();
             }
-            
+            else if (event.key.code == Keyboard::Enter)
+            {
+                state = IN_GAME;
+                start_music.pause();
+            }
         }
         break;
-    
+
     default:
         break;
     }
@@ -48,9 +67,9 @@ void SheepFight::update()
 {
     switch (state)
     {
-    case START :
+    case START:
         break;
-    
+
     default:
         break;
     }
@@ -60,23 +79,24 @@ void SheepFight::gameover()
 {
     switch (state)
     {
-    case START :
+    case START:
         break;
-    
+
     default:
         break;
     }
 }
 
 void SheepFight::render()
-{   
+{
     window.clear();
     switch (state)
     {
-    case START :
+    case START:
         window.draw(start_sprite);
+        window.draw(start_text);
         break;
-    
+
     default:
         break;
     }

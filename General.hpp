@@ -12,5 +12,7 @@ const int HEIGHT = 720;
 
 const string IMAGE_FOLDER = "files/images/";
 const string MUSICS_FOLDER = "files/musics/";
+const string FONTS_FOLDER = "files/fonts/";
+
 
 #endif

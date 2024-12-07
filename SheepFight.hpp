@@ -16,6 +16,9 @@ class SheepFight
 private:
     Texture start_texture;
     Sprite start_sprite;
+    Music start_music;
+    Font font;
+    Text start_text;
 
 public:
     State state;
