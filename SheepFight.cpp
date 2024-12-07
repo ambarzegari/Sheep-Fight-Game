@@ -13,21 +13,72 @@ SheepFight::SheepFight(int width, int height)
     float scaleY = static_cast<float>(windowSize.y) / textureSize.y;
 
     start_sprite.setScale(scaleX, scaleY);
-}
+};
 void SheepFight::run()
 {
     while (window.isOpen() && state != EXIT)
     {
-        window.clear();
-        switch (state)
-        {
-        case START:
-            window.draw(start_sprite);
-            break;
-
-        default:
-            break;
-        }
-        window.display();
+        handleEvent();
+        update();
+        gameover();
+        render();
     }
+}
+void SheepFight::handleEvent(){
+    Event event;
+    switch (state)
+    {
+    case START:
+        while (window.pollEvent(event))
+        {
+            if (event.type == Event::Closed)
+            {
+                window.close();
+            }
+            
+        }
+        break;
+    
+    default:
+        break;
+    }
+}
+
+void SheepFight::update()
+{
+    switch (state)
+    {
+    case START :
+        break;
+    
+    default:
+        break;
+    }
+}
+
+void SheepFight::gameover()
+{
+    switch (state)
+    {
+    case START :
+        break;
+    
+    default:
+        break;
+    }
+}
+
+void SheepFight::render()
+{   
+    window.clear();
+    switch (state)
+    {
+    case START :
+        window.draw(start_sprite);
+        break;
+    
+    default:
+        break;
+    }
+    window.display();
 }
