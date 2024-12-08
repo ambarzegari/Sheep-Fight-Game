@@ -25,6 +25,19 @@ SheepFight::SheepFight(int width, int height)
     start_text.setFillColor(sf::Color::Black);
     start_text.setStyle(sf::Text::Bold);
     start_text.setPosition(240, 600);
+
+    background_texture.loadFromFile(IMAGE_FOLDER + "background.png");
+    background_sprite.setTexture(background_texture);
+
+    Vector2u textureSize2 = background_texture.getSize();
+    Vector2u windowSize2 = window.getSize();
+
+    float scaleX2 = static_cast<float>(windowSize2.x) / textureSize2.x;
+    float scaleY2 = static_cast<float>(windowSize2.y) / textureSize2.y;
+
+    background_sprite.setScale(scaleX2, scaleY2);
+
+    game_music.openFromFile(MUSICS_FOLDER + "game.ogg");
 };
 
 void SheepFight::run()
@@ -54,6 +67,18 @@ void SheepFight::handleEvent()
             {
                 state = IN_GAME;
                 start_music.pause();
+                game_music.play();
+                game_music.setLoop(true);
+            }
+        }
+        break;
+
+    case IN_GAME:
+        while (window.pollEvent(event))
+        {
+            if (event.type == Event::Closed)
+            {
+                window.close();
             }
         }
         break;
@@ -70,6 +95,9 @@ void SheepFight::update()
     case START:
         break;
 
+    case IN_GAME:
+        break;
+
     default:
         break;
     }
@@ -81,7 +109,8 @@ void SheepFight::gameover()
     {
     case START:
         break;
-
+    case IN_GAME:
+        break;
     default:
         break;
     }
@@ -97,6 +126,9 @@ void SheepFight::render()
         window.draw(start_text);
         break;
 
+    case IN_GAME:
+        window.draw(background_sprite);
+        break;
     default:
         break;
     }

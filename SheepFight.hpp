@@ -19,6 +19,9 @@ private:
     Music start_music;
     Font font;
     Text start_text;
+    Texture background_texture;
+    Sprite background_sprite;
+    Music game_music;
 
 public:
     State state;
