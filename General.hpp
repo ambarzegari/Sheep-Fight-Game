@@ -1,8 +1,11 @@
 #ifndef GENERAL_HPP
 #define GENERAL_HPP
 
+#include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include <vector>
+#include <string>
 
 using namespace std;
 using namespace sf;
@@ -14,5 +17,19 @@ const string IMAGE_FOLDER = "files/images/";
 const string MUSICS_FOLDER = "files/musics/";
 const string FONTS_FOLDER = "files/fonts/";
 
+struct SheepConfigs
+{
+    string name;
+    int damage;
+    int strength;
+    float displayProb;
+};
+
+const vector<SheepConfigs> SHEEP_CONFIGS =
+    {{
+        {"Bozi", 50, 50, 0.5},
+        {"Mangool", 30, 150, 0.3},
+        {"Shangool", 30, 250, 0.2},
+    }};
 
 #endif

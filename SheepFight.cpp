@@ -38,6 +38,16 @@ SheepFight::SheepFight(int width, int height)
     background_sprite.setScale(scaleX2, scaleY2);
 
     game_music.openFromFile(MUSICS_FOLDER + "game.ogg");
+
+    right_flsh_texture.loadFromFile(IMAGE_FOLDER + "right_flash.png");
+    right_flash_sprite.setTexture(right_flsh_texture);
+    right_flash_sprite.setScale(0.1, 0.1);
+    row_num_right = 0;
+
+    left_flsh_texture.loadFromFile(IMAGE_FOLDER + "left_flash.png");
+    left_flash_sprite.setTexture(left_flsh_texture);
+    left_flash_sprite.setScale(0.1, 0.1);
+    row_num_left = 0;
 };
 
 void SheepFight::run()
@@ -80,6 +90,49 @@ void SheepFight::handleEvent()
             {
                 window.close();
             }
+            else if (event.type == Event::KeyPressed)
+            {
+                if (event.key.code == Keyboard::W)
+                {
+                    row_num_left--;
+                    if (row_num_left < 1)
+                    {
+                        row_num_left = 4;
+                    }
+                }
+                else if (event.key.code == Keyboard::S)
+                {
+                    row_num_left++;
+                    if (row_num_left > 4)
+                    {
+                        row_num_left = 1;
+                    }
+                }
+                else if (event.key.code == Keyboard::Up)
+                {
+                    row_num_right--;
+                    if (row_num_right < 1)
+                    {
+                        row_num_right = 4;
+                    }
+                }
+                else if (event.key.code == Keyboard::Down)
+                {
+                    row_num_right++;
+                    if (row_num_right > 4)
+                    {
+                        row_num_right = 1;
+                    }
+                }
+                else if (event.key.code == Keyboard::Enter)
+                {
+                    row_num_right = 0;
+                }
+                else if (event.key.code == Keyboard::Space)
+                {
+                    row_num_left = 0;
+                }
+            }
         }
         break;
 
@@ -96,6 +149,8 @@ void SheepFight::update()
         break;
 
     case IN_GAME:
+        right_flash_sprite.setPosition(flashPositionRight(row_num_right));
+        left_flash_sprite.setPosition(flashPositionLeft(row_num_left));
         break;
 
     default:
@@ -128,9 +183,53 @@ void SheepFight::render()
 
     case IN_GAME:
         window.draw(background_sprite);
+        window.draw(right_flash_sprite);
+        window.draw(left_flash_sprite);
         break;
     default:
         break;
     }
     window.display();
+}
+
+Vector2f flashPositionRight(int i)
+{
+    if (i == 1)
+    {
+        return Vector2f(850, 125);
+    }
+    else if (i == 2)
+    {
+        return Vector2f(850, 272);
+    }
+    else if (i == 3)
+    {
+        return Vector2f(850, 419);
+    }
+    else if (i == 4)
+    {
+        return Vector2f(850, 566);
+    }
+    return Vector2f(-1000, -1000);
+}
+
+Vector2f flashPositionLeft(int i)
+{
+    if (i == 1)
+    {
+        return Vector2f(160, 125);
+    }
+    else if (i == 2)
+    {
+        return Vector2f(160, 272);
+    }
+    else if (i == 3)
+    {
+        return Vector2f(160, 419);
+    }
+    else if (i == 4)
+    {
+        return Vector2f(160, 566);
+    }
+    return Vector2f(-1000, -1000);
 }

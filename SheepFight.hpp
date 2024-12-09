@@ -22,6 +22,12 @@ private:
     Texture background_texture;
     Sprite background_sprite;
     Music game_music;
+    Texture right_flsh_texture;
+    Sprite right_flash_sprite;
+    Texture left_flsh_texture;
+    Sprite left_flash_sprite;
+    int row_num_right;
+    int row_num_left;
 
 public:
     State state;
@@ -33,5 +39,8 @@ public:
     void render();
     RenderWindow window;
 };
+
+Vector2f flashPositionRight(int i);
+Vector2f flashPositionLeft(int i);
 
 #endif

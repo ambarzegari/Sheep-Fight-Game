@@ -1,9 +1,7 @@
 #ifndef SHEEPFIGHT_HPP
 #define SHEEPFIGHT_HPP
 
-#include <SFML/Graphics.hpp>
+#include "General.hpp"
 
-using namespace std;
-using namespace sf;
 
 #endif
