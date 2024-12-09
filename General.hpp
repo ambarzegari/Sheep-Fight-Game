@@ -32,4 +32,7 @@ const vector<SheepConfigs> SHEEP_CONFIGS =
         {"Shangool", 30, 250, 0.2},
     }};
 
+const int INITTAL_HEALTH = 400;
+const double SPEED = 0.05;
+
 #endif

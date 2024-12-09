@@ -2,22 +2,18 @@
 #define RIGHTPLAYER_HPP
 
 #include "General.hpp"
-#include "Sheep.hpp"
+#include "ًRightSheeps.hpp"
 
 class RightPlayer
 {
 private:
-    Sheep sheep_bozi;
-    Sheep sheep_shangool;
-    Sheep sheep_mangool;
-
+    vector<RightBozi*> Bozi;
+    int health;
 public:
     RightPlayer();
+    void AddBozi(int row);
+    void move();
+    void render(RenderWindow& window);
 };
-
-
-
-
-
 
 #endif

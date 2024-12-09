@@ -126,6 +126,7 @@ void SheepFight::handleEvent()
                 }
                 else if (event.key.code == Keyboard::Enter)
                 {
+                    right_player.AddBozi(row_num_right);
                     row_num_right = 0;
                 }
                 else if (event.key.code == Keyboard::Space)
@@ -151,6 +152,7 @@ void SheepFight::update()
     case IN_GAME:
         right_flash_sprite.setPosition(flashPositionRight(row_num_right));
         left_flash_sprite.setPosition(flashPositionLeft(row_num_left));
+        right_player.move();
         break;
 
     default:
@@ -185,6 +187,7 @@ void SheepFight::render()
         window.draw(background_sprite);
         window.draw(right_flash_sprite);
         window.draw(left_flash_sprite);
+        right_player.render(window);
         break;
     default:
         break;

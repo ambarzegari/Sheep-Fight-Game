@@ -2,6 +2,7 @@
 #define SHEEPFIGHT_HPP
 
 #include "General.hpp"
+#include "RightPlayer.hpp"
 
 enum State
 {
@@ -14,6 +15,7 @@ enum State
 class SheepFight
 {
 private:
+    RightPlayer right_player;
     Texture start_texture;
     Sprite start_sprite;
     Music start_music;
