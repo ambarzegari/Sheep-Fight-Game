@@ -17,8 +17,6 @@ void RightBozi::move()
 {
     right_bozi_position.x -= SPEED;
     right_bozi_sprite.setPosition(right_bozi_position);
-    cout << right_bozi_position.x << endl;
-    cout << right_bozi_sprite.getPosition().x << " // " << right_bozi_sprite.getPosition().y << endl;
 }
 void RightBozi::render(RenderWindow &window)
 {
@@ -29,19 +27,19 @@ Vector2f InitialPosition(int i)
 {
     if (i == 1)
     {
-        return Vector2f(850, 125);
+        return Vector2f(850, 102);
     }
     else if (i == 2)
     {
-        return Vector2f(850, 272);
+        return Vector2f(850, 252);
     }
     else if (i == 3)
     {
-        return Vector2f(850, 419);
+        return Vector2f(850, 399);
     }
     else if (i == 4)
     {
-        return Vector2f(850, 566);
+        return Vector2f(850, 546);
     }
     return Vector2f(-1000, -1000);
 }
