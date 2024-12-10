@@ -3,7 +3,6 @@
 
 #include "General.hpp"
 
-
 class RightBozi
 {
 private:
@@ -11,12 +10,14 @@ private:
     Sprite right_bozi_sprite;
     SheepConfigs right_bozi_config;
     Vector2f right_bozi_position;
+    int row;
 
 public:
     RightBozi(int row);
     void setPosition(Vector2f);
     void move();
-    void render(RenderWindow& window);
+    void render(RenderWindow &window);
+    Vector2f getPosition();
 };
 
 class RightShangool
@@ -26,12 +27,14 @@ private:
     Sprite right_shangool_sprite;
     SheepConfigs right_shangool_config;
     Vector2f right_shangool_position;
+    int row;
 
 public:
     RightShangool(int row);
     void setPosition(Vector2f);
     void move();
-    void render(RenderWindow& window);
+    void render(RenderWindow &window);
+    Vector2f getPosition();
 };
 
 class RightMangool
@@ -41,12 +44,14 @@ private:
     Sprite right_mangool_sprite;
     SheepConfigs right_mangool_config;
     Vector2f right_mangool_position;
+    int row;
 
 public:
     RightMangool(int row);
     void setPosition(Vector2f);
     void move();
-    void render(RenderWindow& window);
+    void render(RenderWindow &window);
+    Vector2f getPosition();
 };
 
 Vector2f InitialPosition(int i);

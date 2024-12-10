@@ -3,7 +3,6 @@
 
 #include "General.hpp"
 
-
 class LeftBozi
 {
 private:
@@ -11,12 +10,14 @@ private:
     Sprite left_bozi_sprite;
     SheepConfigs left_bozi_config;
     Vector2f left_bozi_position;
+    int row;
 
 public:
     LeftBozi(int row);
     void setPosition(Vector2f);
     void move();
-    void render(RenderWindow& window);
+    void render(RenderWindow &window);
+    Vector2f getPosition();
 };
 
 class LeftShangool
@@ -26,12 +27,14 @@ private:
     Sprite left_shangool_sprite;
     SheepConfigs left_shangool_config;
     Vector2f left_shangool_position;
+    int row;
 
 public:
     LeftShangool(int row);
     void setPosition(Vector2f);
     void move();
-    void render(RenderWindow& window);
+    void render(RenderWindow &window);
+    Vector2f getPosition();
 };
 
 class LeftMangool
@@ -41,12 +44,14 @@ private:
     Sprite left_mangool_sprite;
     SheepConfigs left_mangool_config;
     Vector2f left_mangool_position;
+    int row;
 
 public:
     LeftMangool(int row);
     void setPosition(Vector2f);
     void move();
-    void render(RenderWindow& window);
+    void render(RenderWindow &window);
+    Vector2f getPosition();
 };
 
 Vector2f InitialPositionl(int i);

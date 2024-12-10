@@ -2,10 +2,17 @@
 
 LeftPlayer::LeftPlayer()
 {
-    health = INITTAL_HEALTH;
+    left_health = INITTAL_HEALTH;
     Bozi = {};
     Shangool = {};
     Mangool = {};
+    font.loadFromFile(FONTS_FOLDER + "Cute Dino.ttf");
+    health.setString("HEALTH : " + to_string(left_health));
+    health.setFont(font);
+    health.setCharacterSize(25);
+    health.setFillColor(sf::Color::Black);
+    health.setStyle(sf::Text::Bold);
+    health.setPosition(150, 655);
 }
 void LeftPlayer::AddSheep(int row)
 {
@@ -40,6 +47,7 @@ void LeftPlayer::move()
     {
         mangool_->move();
     }
+    health.setString("HEALTH : " + to_string(left_health));
 }
 void LeftPlayer::render(RenderWindow &window)
 {
@@ -55,6 +63,7 @@ void LeftPlayer::render(RenderWindow &window)
     {
         mangool_->render(window);
     }
+    window.draw(health);
 }
 
 double randomValuel()

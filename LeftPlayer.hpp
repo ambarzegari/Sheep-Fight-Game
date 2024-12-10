@@ -10,7 +10,9 @@ private:
     vector<LeftBozi*> Bozi;
     vector<LeftShangool*> Shangool;
     vector<LeftMangool*> Mangool;
-    int health;
+    Font font;
+    Text health;
+    int left_health;
 public:
     LeftPlayer();
     void AddSheep(int row);

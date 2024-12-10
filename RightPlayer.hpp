@@ -10,7 +10,10 @@ private:
     vector<RightBozi*> Bozi;
     vector<RightShangool*> Shangool;
     vector<RightMangool*> Mangool;
-    int health;
+    Font font;
+    Text health;
+    int right_health;
+    vector<string> sheep_queue;
 public:
     RightPlayer();
     void AddSheep(int row);
@@ -19,5 +22,6 @@ public:
 };
 
 double randomValue();
+void ThreeNextSheep(vector<string> queue, RenderWindow& window);
 
 #endif

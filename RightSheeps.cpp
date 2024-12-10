@@ -1,12 +1,13 @@
 #include "ًRightSheeps.hpp"
 
-RightBozi::RightBozi(int row)
+RightBozi::RightBozi(int _row)
 {
     right_bozi_config = SHEEP_CONFIGS[0];
     right_bozi_texture.loadFromFile(IMAGE_FOLDER + "black_goat.png");
     right_bozi_sprite.setTexture(right_bozi_texture);
-    right_bozi_position = InitialPosition(row);
+    right_bozi_position = InitialPosition(_row);
     right_bozi_sprite.setPosition(right_bozi_position);
+    row = _row;
 }
 void RightBozi::setPosition(Vector2f pos)
 {
@@ -22,15 +23,19 @@ void RightBozi::render(RenderWindow &window)
 {
     window.draw(right_bozi_sprite);
 }
+Vector2f RightBozi::getPosition(){
+    return right_bozi_sprite.getPosition();
+}
 
-RightShangool::RightShangool(int row)
+RightShangool::RightShangool(int _row)
 {
     right_shangool_config = SHEEP_CONFIGS[1];
     right_shangool_texture.loadFromFile(IMAGE_FOLDER + "black_pig.png");
     right_shangool_sprite.setTexture(right_shangool_texture);
-    right_shangool_position = InitialPosition(row);
+    right_shangool_position = InitialPosition(_row);
     right_shangool_sprite.setPosition(right_shangool_position);
     right_shangool_sprite.setScale(1.6, 1.6);
+    row = _row;
 }
 void RightShangool::setPosition(Vector2f pos)
 {
@@ -45,15 +50,19 @@ void RightShangool::move()
 void RightShangool::render(RenderWindow &window){
     window.draw(right_shangool_sprite);
 }
+Vector2f RightShangool::getPosition(){
+    return right_shangool_sprite.getPosition();
+}
 
-RightMangool::RightMangool(int row)
+RightMangool::RightMangool(int _row)
 {
     right_mangool_config = SHEEP_CONFIGS[2];
     right_mangool_texture.loadFromFile(IMAGE_FOLDER + "black_sheep.png");
     right_mangool_sprite.setTexture(right_mangool_texture);
-    right_mangool_position = InitialPosition(row);
+    right_mangool_position = InitialPosition(_row);
     right_mangool_sprite.setPosition(right_mangool_position);
     right_mangool_sprite.setScale(1, 1);
+    row = _row;
 }
 void RightMangool::setPosition(Vector2f pos)
 {
@@ -67,6 +76,9 @@ void RightMangool::move()
 }
 void RightMangool::render(RenderWindow &window){
     window.draw(right_mangool_sprite);
+}
+Vector2f RightMangool::getPosition(){
+    return right_mangool_sprite.getPosition();
 }
 
 Vector2f InitialPosition(int i)
