@@ -49,6 +49,6 @@ public:
     void render(RenderWindow& window);
 };
 
-Vector2f InitialPosition(int i);
+Vector2f InitialPositionl(int i);
 
 #endif

@@ -9,7 +9,7 @@ LeftPlayer::LeftPlayer()
 }
 void LeftPlayer::AddSheep(int row)
 {
-    double random_ = randomValue();
+    double random_ = randomValuel();
     if (random_ <= SHEEP_CONFIGS[0].displayProb)
     {
         LeftBozi *bozi = new LeftBozi(row);
@@ -57,7 +57,7 @@ void LeftPlayer::render(RenderWindow &window)
     }
 }
 
-double randomValue()
+double randomValuel()
 {
     random_device rd;
     mt19937 gen(rd());

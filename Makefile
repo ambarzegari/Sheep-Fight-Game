@@ -6,7 +6,7 @@ CXXFLAGS = -I/path/to/SFML/include -std=c++20 -Wall -Wextra
 
 LDFLAGS = -L/path/to/SFML/lib -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 
-SRCS = main.cpp SheepFight.cpp RightPlayer.cpp RightSheeps.cpp
+SRCS = main.cpp SheepFight.cpp RightPlayer.cpp RightSheeps.cpp LeftPlayer.cpp LeftSheeps.cpp
 
 OBJDIR = build
 OBJS = $(SRCS:%.cpp=$(OBJDIR)/%.o)

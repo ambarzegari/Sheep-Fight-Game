@@ -18,6 +18,6 @@ public:
     void render(RenderWindow& window);
 };
 
-double randomValue();
+double randomValuel();
 
 #endif
