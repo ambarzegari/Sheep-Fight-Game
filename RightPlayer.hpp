@@ -8,12 +8,16 @@ class RightPlayer
 {
 private:
     vector<RightBozi*> Bozi;
+    vector<RightShangool*> Shangool;
+    vector<RightMangool*> Mangool;
     int health;
 public:
     RightPlayer();
-    void AddBozi(int row);
+    void AddSheep(int row);
     void move();
     void render(RenderWindow& window);
 };
+
+double randomValue();
 
 #endif

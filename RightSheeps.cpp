@@ -23,6 +23,52 @@ void RightBozi::render(RenderWindow &window)
     window.draw(right_bozi_sprite);
 }
 
+RightShangool::RightShangool(int row)
+{
+    right_shangool_config = SHEEP_CONFIGS[1];
+    right_shangool_texture.loadFromFile(IMAGE_FOLDER + "black_pig.png");
+    right_shangool_sprite.setTexture(right_shangool_texture);
+    right_shangool_position = InitialPosition(row);
+    right_shangool_sprite.setPosition(right_shangool_position);
+    right_shangool_sprite.setScale(1.6, 1.6);
+}
+void RightShangool::setPosition(Vector2f pos)
+{
+    right_shangool_position = pos;
+    right_shangool_sprite.setPosition(pos);
+}
+void RightShangool::move()
+{
+    right_shangool_position.x -= SPEED;
+    right_shangool_sprite.setPosition(right_shangool_position);
+}
+void RightShangool::render(RenderWindow &window){
+    window.draw(right_shangool_sprite);
+}
+
+RightMangool::RightMangool(int row)
+{
+    right_mangool_config = SHEEP_CONFIGS[2];
+    right_mangool_texture.loadFromFile(IMAGE_FOLDER + "black_sheep.png");
+    right_mangool_sprite.setTexture(right_mangool_texture);
+    right_mangool_position = InitialPosition(row);
+    right_mangool_sprite.setPosition(right_mangool_position);
+    right_mangool_sprite.setScale(1, 1);
+}
+void RightMangool::setPosition(Vector2f pos)
+{
+    right_mangool_position = pos;
+    right_mangool_sprite.setPosition(pos);
+}
+void RightMangool::move()
+{
+    right_mangool_position.x -= SPEED;
+    right_mangool_sprite.setPosition(right_mangool_position);
+}
+void RightMangool::render(RenderWindow &window){
+    window.draw(right_mangool_sprite);
+}
+
 Vector2f InitialPosition(int i)
 {
     if (i == 1)

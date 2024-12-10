@@ -6,6 +6,7 @@
 #include <SFML/Audio.hpp>
 #include <vector>
 #include <string>
+#include <random>
 
 using namespace std;
 using namespace sf;
@@ -33,6 +34,6 @@ const vector<SheepConfigs> SHEEP_CONFIGS =
     }};
 
 const int INITTAL_HEALTH = 400;
-const double SPEED = 0.05;
+const double SPEED = 0.03;
 
 #endif

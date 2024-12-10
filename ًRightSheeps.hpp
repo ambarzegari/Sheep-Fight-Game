@@ -1,5 +1,5 @@
-#ifndef RIGHTSHEEP_HPP
-#define RIGHTSHEEP_HPP
+#ifndef RIGHTSHEEPS_HPP
+#define RIGHTSHEEPS_HPP
 
 #include "General.hpp"
 
@@ -14,6 +14,36 @@ private:
 
 public:
     RightBozi(int row);
+    void setPosition(Vector2f);
+    void move();
+    void render(RenderWindow& window);
+};
+
+class RightShangool
+{
+private:
+    Texture right_shangool_texture;
+    Sprite right_shangool_sprite;
+    SheepConfigs right_shangool_config;
+    Vector2f right_shangool_position;
+
+public:
+    RightShangool(int row);
+    void setPosition(Vector2f);
+    void move();
+    void render(RenderWindow& window);
+};
+
+class RightMangool
+{
+private:
+    Texture right_mangool_texture;
+    Sprite right_mangool_sprite;
+    SheepConfigs right_mangool_config;
+    Vector2f right_mangool_position;
+
+public:
+    RightMangool(int row);
     void setPosition(Vector2f);
     void move();
     void render(RenderWindow& window);
