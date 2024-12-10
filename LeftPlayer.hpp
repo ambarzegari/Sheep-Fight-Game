@@ -13,6 +13,7 @@ private:
     Font font;
     Text health;
     int left_health;
+    vector<string> sheep_queue;
 public:
     LeftPlayer();
     void AddSheep(int row);
@@ -21,5 +22,6 @@ public:
 };
 
 double randomValuel();
+void ThreeNextSheepl(vector<string> queue, RenderWindow& window);
 
 #endif
