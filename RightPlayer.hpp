@@ -12,7 +12,7 @@ private:
     vector<RightMangool*> Mangool;
     Font font;
     Text health;
-    int right_health;
+    int left_health;
     vector<string> sheep_queue;
 public:
     RightPlayer();

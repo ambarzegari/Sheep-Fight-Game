@@ -2,17 +2,17 @@
 
 RightPlayer::RightPlayer()
 {
-    right_health = INITTAL_HEALTH;
+    left_health = INITTAL_HEALTH;
     Bozi = {};
     Shangool = {};
     Mangool = {};
     font.loadFromFile(FONTS_FOLDER + "Cute Dino.ttf");
-    health.setString("HEALTH : " + to_string(right_health));
+    health.setString("HEALTH : " + to_string(left_health));
     health.setFont(font);
     health.setCharacterSize(25);
     health.setFillColor(sf::Color::Black);
     health.setStyle(sf::Text::Bold);
-    health.setPosition(730, 655);
+    health.setPosition(150, 655);
     for (int i = 0; i < 3; i++)
     {
         double random_ = randomValue();
@@ -71,6 +71,12 @@ void RightPlayer::move()
     for (auto bozi_ : Bozi)
     {
         bozi_->move();
+        if (bozi_->getPosition().x <= 100)
+        {
+            left_health = left_health - bozi_->right_bozi_config.damage;
+            Bozi.erase(remove(Bozi.begin(), Bozi.end(), 30), Bozi.end());
+            delete bozi_;
+        }
     }
     for (auto shangool_ : Shangool)
     {
@@ -80,7 +86,7 @@ void RightPlayer::move()
     {
         mangool_->move();
     }
-    health.setString("HEALTH : " + to_string(right_health));
+    health.setString("HEALTH : " + to_string(left_health));
 }
 void RightPlayer::render(RenderWindow &window)
 {

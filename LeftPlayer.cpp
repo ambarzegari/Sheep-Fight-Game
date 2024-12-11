@@ -2,17 +2,17 @@
 
 LeftPlayer::LeftPlayer()
 {
-    left_health = INITTAL_HEALTH;
+    right_health = INITTAL_HEALTH;
     Bozi = {};
     Shangool = {};
     Mangool = {};
     font.loadFromFile(FONTS_FOLDER + "Cute Dino.ttf");
-    health.setString("HEALTH : " + to_string(left_health));
+    health.setString("HEALTH : " + to_string(right_health));
     health.setFont(font);
     health.setCharacterSize(25);
     health.setFillColor(sf::Color::Black);
     health.setStyle(sf::Text::Bold);
-    health.setPosition(150, 655);
+    health.setPosition(730, 655);
     for (int i = 0; i < 3; i++)
     {
         double random_ = randomValuel();
@@ -80,7 +80,7 @@ void LeftPlayer::move()
     {
         mangool_->move();
     }
-    health.setString("HEALTH : " + to_string(left_health));
+    health.setString("HEALTH : " + to_string(right_health));
 }
 void LeftPlayer::render(RenderWindow &window)
 {
