@@ -36,6 +36,7 @@ private:
     Sprite right_winner_sprite;
     int row_num_right;
     int row_num_left;
+    Music end_game_music;
 
 public:
     State state;

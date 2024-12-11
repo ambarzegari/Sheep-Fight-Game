@@ -66,6 +66,8 @@ SheepFight::SheepFight(int width, int height)
     scaleY = static_cast<float>(windowSize.y) / textureSize.y;
 
     right_winner_sprite.setScale(scaleX, scaleY);
+
+    end_game_music.openFromFile(MUSICS_FOLDER + "end game.ogg");
 };
 
 void SheepFight::run()
@@ -200,6 +202,7 @@ void SheepFight::gameover()
         {
             state = GAMEOVER;
             game_music.stop();
+            end_game_music.play();
         }
         break;
     default:
