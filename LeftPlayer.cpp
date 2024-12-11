@@ -71,14 +71,32 @@ void LeftPlayer::move()
     for (auto bozi_ : Bozi)
     {
         bozi_->move();
+        if (bozi_->getPosition().x >= 880)
+        {
+            right_health = right_health - bozi_->left_bozi_config.damage;
+            Bozi.erase(remove(Bozi.begin(), Bozi.end(), bozi_), Bozi.end());
+            delete bozi_;
+        }
     }
     for (auto shangool_ : Shangool)
     {
         shangool_->move();
+        if (shangool_->getPosition().x >= 880)
+        {
+            right_health = right_health - shangool_->left_shangool_config.damage;
+            Shangool.erase(remove(Shangool.begin(), Shangool.end(), shangool_), Shangool.end());
+            delete shangool_;
+        }
     }
     for (auto mangool_ : Mangool)
     {
         mangool_->move();
+        if (mangool_->getPosition().x >= 880)
+        {
+            right_health = right_health - mangool_->left_mangool_config.damage;
+            Mangool.erase(remove(Mangool.begin(), Mangool.end(), mangool_), Mangool.end());
+            delete mangool_;
+        }
     }
     health.setString("HEALTH : " + to_string(right_health));
 }

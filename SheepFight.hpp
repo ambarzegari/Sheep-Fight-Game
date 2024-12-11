@@ -30,6 +30,10 @@ private:
     Sprite right_flash_sprite;
     Texture left_flsh_texture;
     Sprite left_flash_sprite;
+    Texture left_winner_texture;
+    Sprite left_winner_sprite;
+    Texture right_winner_texture;
+    Sprite right_winner_sprite;
     int row_num_right;
     int row_num_left;
 

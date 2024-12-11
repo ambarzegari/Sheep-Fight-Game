@@ -8,7 +8,6 @@ class LeftBozi
 private:
     Texture left_bozi_texture;
     Sprite left_bozi_sprite;
-    SheepConfigs left_bozi_config;
     Vector2f left_bozi_position;
     int row;
 
@@ -18,6 +17,7 @@ public:
     void move();
     void render(RenderWindow &window);
     Vector2f getPosition();
+    SheepConfigs left_bozi_config;
 };
 
 class LeftShangool
@@ -25,7 +25,6 @@ class LeftShangool
 private:
     Texture left_shangool_texture;
     Sprite left_shangool_sprite;
-    SheepConfigs left_shangool_config;
     Vector2f left_shangool_position;
     int row;
 
@@ -35,6 +34,7 @@ public:
     void move();
     void render(RenderWindow &window);
     Vector2f getPosition();
+    SheepConfigs left_shangool_config;
 };
 
 class LeftMangool
@@ -42,7 +42,6 @@ class LeftMangool
 private:
     Texture left_mangool_texture;
     Sprite left_mangool_sprite;
-    SheepConfigs left_mangool_config;
     Vector2f left_mangool_position;
     int row;
 
@@ -52,6 +51,7 @@ public:
     void move();
     void render(RenderWindow &window);
     Vector2f getPosition();
+    SheepConfigs left_mangool_config;
 };
 
 Vector2f InitialPositionl(int i);

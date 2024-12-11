@@ -7,6 +7,7 @@
 #include <vector>
 #include <string>
 #include <random>
+#include <algorithm>
 
 using namespace std;
 using namespace sf;
@@ -34,7 +35,7 @@ const vector<SheepConfigs> SHEEP_CONFIGS =
     }};
 
 const int INITTAL_HEALTH = 400;
-const double SPEED = 0.03;
+const double SPEED = 0.3;
 
 
 #endif

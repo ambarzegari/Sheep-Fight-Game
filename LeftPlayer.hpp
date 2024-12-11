@@ -12,13 +12,14 @@ private:
     vector<LeftMangool*> Mangool;
     Font font;
     Text health;
-    int right_health;
     vector<string> sheep_queue;
 public:
     LeftPlayer();
     void AddSheep(int row);
     void move();
     void render(RenderWindow& window);
+    int right_health;
+
 };
 
 double randomValuel();

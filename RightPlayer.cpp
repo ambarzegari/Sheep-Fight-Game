@@ -74,17 +74,29 @@ void RightPlayer::move()
         if (bozi_->getPosition().x <= 100)
         {
             left_health = left_health - bozi_->right_bozi_config.damage;
-            Bozi.erase(remove(Bozi.begin(), Bozi.end(), 30), Bozi.end());
+            Bozi.erase(remove(Bozi.begin(), Bozi.end(), bozi_), Bozi.end());
             delete bozi_;
         }
     }
     for (auto shangool_ : Shangool)
     {
         shangool_->move();
+        if (shangool_->getPosition().x <= 100)
+        {
+            left_health = left_health - shangool_->right_shangool_config.damage;
+            Shangool.erase(remove(Shangool.begin(), Shangool.end(), shangool_), Shangool.end());
+            delete shangool_;
+        }
     }
     for (auto mangool_ : Mangool)
     {
         mangool_->move();
+        if (mangool_->getPosition().x <= 100)
+        {
+            left_health = left_health - mangool_->right_mangool_config.damage;
+            Mangool.erase(remove(Mangool.begin(), Mangool.end(), mangool_), Mangool.end());
+            delete mangool_;
+        }
     }
     health.setString("HEALTH : " + to_string(left_health));
 }
@@ -116,7 +128,7 @@ void ThreeNextSheep(vector<string> queue, RenderWindow &window)
         texture.loadFromFile(IMAGE_FOLDER + "black_goat.png");
         sprite.setTexture(texture);
         sprite.setPosition(850, 30);
-        sprite.setScale(0.7,0.7);
+        sprite.setScale(0.7, 0.7);
         window.draw(sprite);
     }
     else if (queue[0] == "Shangool")
@@ -124,7 +136,7 @@ void ThreeNextSheep(vector<string> queue, RenderWindow &window)
         texture.loadFromFile(IMAGE_FOLDER + "black_pig.png");
         sprite.setTexture(texture);
         sprite.setPosition(850, 30);
-        sprite.setScale(1,1);
+        sprite.setScale(1, 1);
         window.draw(sprite);
     }
     else if (queue[0] == "Mangool")
@@ -132,7 +144,7 @@ void ThreeNextSheep(vector<string> queue, RenderWindow &window)
         texture.loadFromFile(IMAGE_FOLDER + "black_sheep.png");
         sprite.setTexture(texture);
         sprite.setPosition(850, 30);
-        sprite.setScale(0.7,0.7);
+        sprite.setScale(0.7, 0.7);
         window.draw(sprite);
     }
 
@@ -141,7 +153,7 @@ void ThreeNextSheep(vector<string> queue, RenderWindow &window)
         texture.loadFromFile(IMAGE_FOLDER + "black_goat.png");
         sprite.setTexture(texture);
         sprite.setPosition(750, 30);
-        sprite.setScale(0.7,0.7);
+        sprite.setScale(0.7, 0.7);
         window.draw(sprite);
     }
     else if (queue[1] == "Shangool")
@@ -149,7 +161,7 @@ void ThreeNextSheep(vector<string> queue, RenderWindow &window)
         texture.loadFromFile(IMAGE_FOLDER + "black_pig.png");
         sprite.setTexture(texture);
         sprite.setPosition(750, 30);
-        sprite.setScale(1,1);
+        sprite.setScale(1, 1);
         window.draw(sprite);
     }
     else if (queue[1] == "Mangool")
@@ -157,7 +169,7 @@ void ThreeNextSheep(vector<string> queue, RenderWindow &window)
         texture.loadFromFile(IMAGE_FOLDER + "black_sheep.png");
         sprite.setTexture(texture);
         sprite.setPosition(750, 30);
-        sprite.setScale(0.7,0.7);
+        sprite.setScale(0.7, 0.7);
         window.draw(sprite);
     }
 
@@ -166,7 +178,7 @@ void ThreeNextSheep(vector<string> queue, RenderWindow &window)
         texture.loadFromFile(IMAGE_FOLDER + "black_goat.png");
         sprite.setTexture(texture);
         sprite.setPosition(650, 30);
-        sprite.setScale(0.7,0.7);
+        sprite.setScale(0.7, 0.7);
         window.draw(sprite);
     }
     else if (queue[2] == "Shangool")
@@ -174,7 +186,7 @@ void ThreeNextSheep(vector<string> queue, RenderWindow &window)
         texture.loadFromFile(IMAGE_FOLDER + "black_pig.png");
         sprite.setTexture(texture);
         sprite.setPosition(650, 30);
-        sprite.setScale(1,1);
+        sprite.setScale(1, 1);
         window.draw(sprite);
     }
     else if (queue[2] == "Mangool")
@@ -182,7 +194,7 @@ void ThreeNextSheep(vector<string> queue, RenderWindow &window)
         texture.loadFromFile(IMAGE_FOLDER + "black_sheep.png");
         sprite.setTexture(texture);
         sprite.setPosition(650, 30);
-        sprite.setScale(0.7,0.7);
+        sprite.setScale(0.7, 0.7);
         window.draw(sprite);
     }
 }

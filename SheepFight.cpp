@@ -48,6 +48,24 @@ SheepFight::SheepFight(int width, int height)
     left_flash_sprite.setTexture(left_flsh_texture);
     left_flash_sprite.setScale(0.1, 0.1);
     row_num_left = 0;
+
+    left_winner_texture.loadFromFile(IMAGE_FOLDER + "left_win.png");
+    left_winner_sprite.setTexture(left_winner_texture);
+    textureSize = left_winner_texture.getSize();
+
+    scaleX = static_cast<float>(windowSize.x) / textureSize.x;
+    scaleY = static_cast<float>(windowSize.y) / textureSize.y;
+
+    left_winner_sprite.setScale(scaleX, scaleY);
+
+    right_winner_texture.loadFromFile(IMAGE_FOLDER + "right_win.png");
+    right_winner_sprite.setTexture(right_winner_texture);
+    textureSize = right_winner_texture.getSize();
+
+    scaleX = static_cast<float>(windowSize.x) / textureSize.x;
+    scaleY = static_cast<float>(windowSize.y) / textureSize.y;
+
+    right_winner_sprite.setScale(scaleX, scaleY);
 };
 
 void SheepFight::run()
@@ -139,6 +157,15 @@ void SheepFight::handleEvent()
             }
         }
         break;
+    case GAMEOVER:
+        while (window.pollEvent(event))
+        {
+            if (event.type == Event::Closed)
+            {
+                window.close();
+            }
+        }
+        break;
 
     default:
         break;
@@ -168,9 +195,12 @@ void SheepFight::gameover()
 {
     switch (state)
     {
-    case START:
-        break;
     case IN_GAME:
+        if (left_player.right_health <= 0 || right_player.left_health <= 0)
+        {
+            state = GAMEOVER;
+            game_music.stop();
+        }
         break;
     default:
         break;
@@ -193,6 +223,16 @@ void SheepFight::render()
         window.draw(left_flash_sprite);
         right_player.render(window);
         left_player.render(window);
+        break;
+    case GAMEOVER:
+        if (left_player.right_health <= 0)
+        {
+            window.draw(left_winner_sprite);
+        }
+        if (right_player.left_health <= 0)
+        {
+            window.draw(right_winner_sprite);
+        }
         break;
     default:
         break;
